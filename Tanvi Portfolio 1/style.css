@@ -1,0 +1,1193 @@
+/* ==========================================================================
+   1. GLOBAL RESETS & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #101111;
+    color: #FFFFFF;
+    font-family: 'Satoshi', 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   2. FIXED NAVIGATION BAR
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    width: 650px;
+    background: rgba(218, 197, 167, 0.05);
+    border: 1px solid rgba(218, 197, 167, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 50px;
+    z-index: 1000;
+}
+
+.nav-link {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #DAC5A7;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #EA7C34;
+}
+
+.nav-logo {
+    height: 24px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   3. BACKGROUND REPEATING GRID & HERO (HOME)
+   ========================================================================== */
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.hero-grid-bg {
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: center top;
+}
+
+.hero-main {
+    position: relative;
+    width: 100%;
+    max-width: 1050px;
+    height: 520px; 
+    margin: 0 auto;
+}
+
+.hero-bg-text {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Poppins', sans-serif;
+    font-size: 260px;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(180deg, #E88A55 20%, #101111 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 0;
+}
+
+.hero-avatar {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 480px; 
+    object-fit: contain;
+    z-index: 1;
+}
+
+.hero-left {
+    position: absolute;
+    left: 0;
+    bottom: 60px; 
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tagline-wrapper {
+    position: relative;
+}
+
+.tagline-star {
+    position: absolute;
+    top: -15px;
+    left: -40px;
+    width: 20px;
+}
+
+.hero-tagline {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #E9E4F1;
+}
+
+.hero-right-star {
+    position: absolute;
+    right: 80px;
+    top: 60px;
+    width: 25px;
+    z-index: 0;
+}
+
+/* ==========================================================================
+   4. THE ACTION PILL UTILITIES
+   ========================================================================== */
+.action-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px; 
+    border-radius: 60px;
+    backdrop-filter: blur(10px);
+    width: max-content; 
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.arrow-icon {
+    display: block;
+    max-width: 18px; 
+    opacity: 1;
+    margin-left: 8px;
+    overflow: hidden; 
+    transition: max-width 0.3s ease, margin-left 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-connect {
+    background-color: #CD7033;
+    color: #FFFFFF;
+}
+
+.btn-resume {
+    background-color: transparent;
+    color: #DEDEDE;
+}
+
+.btn-resume .arrow-icon {
+    max-width: 0px;
+    margin-left: 0px; 
+    opacity: 0;
+}
+
+.action-pill:hover .btn-connect {
+    background-color: transparent;
+    color: #DEDEDE;
+}
+
+.action-pill:hover .btn-connect .arrow-icon {
+    max-width: 0px;
+    margin-left: 0px; 
+    opacity: 0;
+}
+
+.action-pill .btn-connect:hover,
+.action-pill .btn-resume:hover {
+    background-color: #CD7033;
+    color: #FFFFFF;
+}
+
+.action-pill .btn-connect:hover .arrow-icon,
+.action-pill .btn-resume:hover .arrow-icon {
+    max-width: 18px;
+    margin-left: 8px; 
+    opacity: 1;
+}
+
+/* ==========================================================================
+   5. STANDARD TOOLS MARQUEE BAR
+   ========================================================================== */
+.tools-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 20px 0;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #FFFFFF;
+    z-index: 2;
+    position: relative;
+    background: rgba(16, 17, 17, 0.8);
+}
+
+.tool-star {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   6. INTERACTIVE STATEMENTS BLOCK
+   ========================================================================== */
+.statements {
+    padding: 100px 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.statement-line {
+    font-family: 'Outfit', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #262020; 
+    display: flex;
+    flex-wrap: wrap;
+    cursor: default;
+}
+
+.statement-line span {
+    display: inline-block;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.statement-line span:hover {
+    color: #d28c60; 
+    text-shadow: 0px 0px 8px rgba(205, 112, 51, 0.4), 0px 0px 20px rgba(205, 112, 51, 0.2);
+    transition: none; 
+}
+
+/* ==========================================================================
+   7. FEATURED PROJECT SCROLL STICKY DECK
+   ========================================================================== */
+.projects {
+    padding: 100px 10% 0 10%;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.title-star {
+    width: 30px;
+    height: 30px;
+}
+
+.deck-container {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+}
+
+.deck-text-column {
+    width: 45%;
+    padding-right: 60px;
+}
+
+.deck-text-item {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0.2;
+    transition: opacity 0.5s ease;
+}
+
+.deck-text-item.active { opacity: 1; }
+
+.deck-text-item h4 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 48px;
+    margin-bottom: 25px;
+}
+
+.deck-text-item p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #949494;
+    margin-bottom: 40px;
+}
+
+.deck-text-item p strong {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.btn-case-study {
+    display: inline-flex;
+    align-items: center;
+    color: #000000;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    width: max-content;
+    transition: transform 0.2s ease;
+}
+.btn-case-study:hover { transform: translateY(-3px); }
+
+.color-nari { color: #FFCADC; }
+.bg-nari { background-color: #FFCADC; }
+.color-labor { color: #FFFFFF; }
+.bg-labor { background-color: #E8F0F4; }
+.color-waste { color: #A7F3D0; }
+.bg-waste { background-color: #A7F3D0; }
+.color-stars { color: #D8B4FE; }
+.bg-stars { background-color: #D8B4FE; }
+
+.deck-visual-column {
+    width: 55%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deck-sticky {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deck-card {
+    position: absolute;
+    width: 85%;
+    max-width: 550px;
+    border-radius: 24px;
+    background-color: transparent; 
+    border: none;
+    box-shadow: none;
+    filter: drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.95));
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.8s ease;
+    will-change: transform, opacity;
+}
+
+.pos-hidden-top { transform: translateY(-120vh) rotate(15deg); opacity: 0; }
+.pos-1 { transform: translateY(0) rotate(2deg); z-index: 4; opacity: 1; }
+.pos-2 { transform: translateY(40px) translateX(-20px) rotate(-6deg); z-index: 3; opacity: 1; }
+.pos-3 { transform: translateY(80px) translateX(15px) rotate(4deg); z-index: 2; opacity: 1; }
+.pos-4 { transform: translateY(120px) translateX(-10px) rotate(-3deg); z-index: 1; opacity: 1; }
+
+/* ==========================================================================
+   8. EXPERIENCE TIMELINE (SIDE-BY-SIDE PANELS)
+   ========================================================================== */
+.experience {
+    width: 100%;
+    padding: 120px 10%;
+    background-color: #101111;
+}
+
+.exp-about-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.exp-left-col {
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.exp-header-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.exp-eyebrow {
+    font-size: 14px;
+    color: #969696;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.exp-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.polaroid-card {
+    background-color: #FCF7F0;
+    padding: 24px 24px 32px 24px;
+    width: 100%;
+    max-width: 340px;
+    border-radius: 14px;
+    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.6);
+    transform: rotate(0deg) scale(1);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    will-change: transform;
+}
+
+.polaroid-card:hover { transform: rotate(-4deg) scale(1.04); }
+
+.polaroid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.polaroid-meta {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #615B55;
+}
+
+.polaroid-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.polaroid-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.polaroid-caption {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #101111;
+    text-align: center;
+    letter-spacing: -0.3px;
+}
+
+.about-me-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 500;
+    gap: 10px;
+}
+
+.pill-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #22C55E;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #22C55E;
+}
+
+.exp-timeline {
+    width: 54%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.exp-card {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 24px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.exp-card:hover {
+    border-color: rgba(205, 112, 51, 0.4);
+    background-color: rgba(255, 255, 255, 0.01);
+}
+
+.exp-top, .exp-role {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.exp-top h4 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.exp-role h5 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #E6E6E6;
+}
+
+.exp-date, .exp-type { font-size: 14px; color: #8C8C8C; }
+.exp-desc { font-size: 14px; color: #9C9C9C; line-height: 1.6; margin-top: 8px; }
+
+/* ==========================================================================
+   9. CONTACT CTA SECTION
+   ========================================================================== */
+.contact-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px;
+    gap: 40px;
+    background-color: #101111;
+    width: 100%;
+    text-align: center;
+}
+
+.cta-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 54px; 
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -1.5px;
+    color: #FFFFFF;
+}
+
+.highlight-orange { color: #EA8C55; }
+
+.contact-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #101111;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 8px 6px 12px;
+    border-radius: 100px;
+    width: 100%;
+    max-width: 620px;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-grow: 1;
+}
+
+.email-icon-circle {
+    width: 44px;
+    height: 44px;
+    background-color: #FCDDC7; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-icon-circle svg { color: #D46B29; }
+
+.contact-form input {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+    font-family: 'Satoshi', sans-serif;
+}
+
+.contact-form input::placeholder { color: #555555; }
+
+.btn-submit {
+    background: #EA8C55; 
+    color: #FFFFFF;
+    border: none;
+    padding: 14px 44px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Satoshi', sans-serif;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover { background: #CD7033; transform: scale(1.02); }
+
+/* ==========================================================================
+   10. HIGH-END SECURE FOOTER (POLAROID ANIMATION STACK)
+   ========================================================================== */
+.footer {
+    padding: 100px 10%;
+    border-top: 1px solid #191919;
+    background-color: #101111;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-gallery {
+    width: 55%;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.polaroid-deck {
+    position: relative;
+    width: 250px;
+    height: 330px;
+    cursor: pointer;
+}
+
+.mini-polaroid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px; 
+    height: auto;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.65);
+    will-change: transform;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-left { transform: rotate(-6deg) translate(-10px, 4px); z-index: 1; }
+.card-center { transform: rotate(4deg) translate(8px, -4px); z-index: 2; }
+.card-right { transform: rotate(-1deg) translate(0px, 0px); z-index: 3; }
+
+.polaroid-deck:hover .card-left { transform: translateX(-280px) rotate(-5deg); z-index: 4; }
+.polaroid-deck:hover .card-center { transform: translateX(0) rotate(0deg); z-index: 5; }
+.polaroid-deck:hover .card-right { transform: translateX(280px) rotate(5deg); z-index: 6; }
+
+.footer-links-wrapper {
+    display: flex;
+    gap: 120px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-col h4 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+.footer-col a {
+    color: #969696;
+    font-size: 15px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+.footer-col a:hover { color: #EA8C55; }
+
+/* ==========================================================================
+   11. RESUME PAN-ZOOM MODAL SYSTEM
+   ========================================================================== */
+.resume-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 17, 17, 0.85); 
+    backdrop-filter: blur(14px); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000; 
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.resume-modal-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.resume-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 680px; 
+    max-height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume-img-container {
+    width: 100%;
+    max-height: 85vh;
+    overflow: hidden; 
+    border-radius: 12px;
+    box-shadow: 0px 30px 70px rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resume-modal-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    cursor: zoom-in;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, transform-origin;
+}
+
+.resume-modal-img.is-zoomed {
+    transform: scale(2.2); 
+    cursor: zoom-out;
+}
+
+.resume-modal-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    font-size: 38px;
+    font-weight: 400;
+    color: #FFFFFF;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.2s ease;
+    z-index: 3100;
+}
+.resume-modal-close:hover { color: #EA8C55; transform: scale(1.1); }
+
+/* ==========================================================================
+   12. ABOUT PAGE SPECIFIC UNIQUE LAYOUT COMPONENT ENTITIES
+   ========================================================================== */
+.about-hero {
+    position: relative;
+    width: 100%;
+    padding-top: 140px;
+    padding-bottom: 0; 
+    background-color: #101111;
+    overflow: hidden;
+}
+
+.about-hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding: 0 40px;
+}
+
+.about-hero-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 95px; 
+}
+
+.about-hero-title {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #FFFFFF;
+}
+
+.about-hero-subtitle {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #B8B8B8;
+}
+
+.about-hero-right {
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    line-height: 0; 
+}
+
+.about-hero-avatar {
+    max-width: 480px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-bottom: -26px; 
+    vertical-align: bottom;
+}
+
+.marquee-strip {
+    background: #101111;
+    border-top: 1px solid #191919;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 24px 0;
+    position: relative;
+    z-index: 5;
+}
+
+.tool-vector-star {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(90deg, #7A87FB 0%, #FFD49C 100%);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.tool-vector-star.reverse {
+    background: linear-gradient(269.57deg, #7A87FB 0.72%, #FFD49C 99.22%);
+}
+
+/* ==========================================================================
+   13. SUPERSIZED MOUSE-TRACKING PARALLAX LAYER SYSTEM (ABOUT)
+   ========================================================================== */
+.curiosity-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 140px 60px;
+    background-color: #101111;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.curiosity-container {
+    width: 100%;
+    max-width: 740px; 
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    pointer-events: none; 
+}
+
+.curiosity-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 28px;
+}
+
+.curiosity-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
+}
+
+.curiosity-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
+    color: #949494;
+}
+
+.floating-item {
+    position: absolute;
+    object-fit: contain;
+    pointer-events: none;
+    will-change: transform;
+    transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* TARGET BADGE: Bumping up about1.png (item-serum) cleanly to 225px width */
+.item-serum {
+    width: 225px;       
+    top: 10%;
+    left: 6%;        
+    transform: rotate(-15deg);
+}
+.item-about2 {
+    width: 220px;
+    top: 8%;
+    left: 22%;
+    transform: rotate(-8deg);
+}
+
+.item-daisy-top {
+    width: 210px;       
+    top: 4%;
+    left: 54%;
+}
+
+.item-daisy-bottom {
+    width: 180px;       
+    bottom: 6%;
+    left: 32%;
+}
+
+.item-spark-top {
+    width: 330px;      
+    top: 8%;
+    right: 3%;        
+}
+
+.item-spark-bottom {
+    width: 300px;      
+    bottom: 10%;
+    left: 12%;
+}
+
+.item-book-left {
+    width: 190px;       
+    bottom: 6%;
+    left: 4%;
+}
+
+.item-book-right {
+    width: 160px;       
+    bottom: 22%;
+    right: 6%;       
+}
+
+.item-tint {
+    width: 140px;       
+    bottom: 4%;
+    left: 56%;        
+    transform: rotate(12deg);
+}
+
+.item-star-cross1 {
+    width: 80px;        
+    top: 18%;
+    right: 26%;
+}
+
+.item-star-cross2 {
+    width: 110px;       
+    top: 28%;
+    right: 10%;       
+}
+
+.item-star-cross3 {
+    width: 95px;        
+    bottom: 20%;
+    left: 4%;         
+}
+
+/* ==========================================================================
+   14. ASYMMETRIC BALANCED BENTO GALLERY GRID STYLES (WITH FIXED VISIBILITY)
+   ========================================================================== */
+.gallery-grid-section {
+    width: 100%;
+    padding: 80px 10%;
+    background-color: #101111;
+}
+
+.gallery-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Uniform line gaps between grid rows */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-row {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+}
+
+/* Base structural rules for layout blocks */
+.gallery-card {
+    background: #141515; 
+    border-radius: 24px;  
+    overflow: hidden;     
+    height: 440px;        /* Forces structural grid bounds */
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.03); 
+}
+
+/* Strict dimension inheritance to prevent image canvas collapse */
+.gallery-card img {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover;    /* Preserves scaling ratios perfectly */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+/* Zoom Transition Feedback on Focus */
+.gallery-card:hover img {
+    transform: scale(1.065); 
+}
+
+/* --- ROW 1 PROPORTIONS (3 Columns) --- */
+.row-triple .card-size-3 { 
+    width: 32%; 
+}
+.row-triple .card-size-1 { 
+    width: 34%; 
+}
+.row-triple .card-size-2 { 
+    width: 34%; 
+}
+
+/* --- ROW 2 PROPORTIONS (2 Columns - Fixes Photo 5 Visibility) --- */
+.row-double .card-size-wide { 
+    width: 53%; 
+}
+.row-double .card-size-mid { 
+    width: 47%; 
+    display: block; /* Guarantees layout flow render */
+}
+
+/* ===========================
+   NARI SEVA CASE STUDY
+=========================== */
+
+.project-page {
+    background: #1a1a1a;
+}
+
+.project-container {
+    width: 100%;
+    max-width: 638px;
+    margin: 0 auto;
+}
+
+.case-study-section{
+    width:100%;
+    padding:40px 0;
+}
+
+.case-study-card{
+    width:100%;
+    background:#1C1C1C;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:48px 32px;
+}
+
+.case-study-card h2 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+.case-study-card p {
+    font-family: 'Satoshi', sans-serif;
+    color: #B5AFA5;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.case-image{
+    width:100%;
+    max-width:100%;
+    display:block;
+    margin:28px auto;
+    border-radius:16px;
+    object-fit:contain;
+}
+
+.project-cta {
+    max-width: 638px;
+    margin: 40px auto 80px;
+    padding: 32px;
+    background: #1c1c1c;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    text-align: center;
+}
+
+.project-cta h2 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.project-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cta-outline,
+.cta-filled {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: .3s ease;
+}
+
+.cta-outline {
+    border: 1px solid rgba(255,255,255,.1);
+    color: #fff;
+}
+
+.cta-filled {
+    background: #fff;
+    color: #111;
+}
+
+.cta-filled:hover,
+.cta-outline:hover {
+    transform: translateY(-2px);
+}
+.case-study-card{
+    background:red !important;
+}
